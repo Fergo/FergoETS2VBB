@@ -1,5 +1,5 @@
 
-# Fergo ETS2 Virtual Button Box
+# Fergo Euro Truck Simulator 2 - Virtual Button Box
 
 Welcome to Fergo ETS2 Virtual Button Box page. 
 
