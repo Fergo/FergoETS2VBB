@@ -43,8 +43,7 @@
       <HintPath>..\packages\Fleck.1.1.0\lib\net45\Fleck.dll</HintPath>
     </Reference>
     <Reference Include="InputManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>I:\OneDrive\Documentos\Fernando\Programacao\C#\FergoETS2Dash\FergoETS2Dash\bin\Debug\InputManager.dll</HintPath>
+      <HintPath>..\packages\InputManager.1.0.0\lib\InputManager.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

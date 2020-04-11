@@ -94,7 +94,7 @@ namespace FergoETS2Dash {
 		//Adds the HTTP reservation
 		private static bool SetupHTTP(int Port) {
 			string allUsers = new System.Security.Principal.SecurityIdentifier("S-1-1-0").Translate(typeof(System.Security.Principal.NTAccount)).ToString();
-			string httpRule = string.Format("http add urlacl url=http://+:{0}/ user=\"\\{1}\"", Port, allUsers);
+			string httpRule = string.Format("http add urlacl url=http://*:{0}/ user=\"\\{1}\"", Port, allUsers);
 
 			string stdOut = RunNetSh(httpRule);
 			if (!stdOut.ToLower().Contains("err"))

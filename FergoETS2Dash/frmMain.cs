@@ -63,6 +63,8 @@ namespace FergoETS2Dash {
 
 		public frmMain() {
 			InitializeComponent();
+
+			
 		}
 
 		private void cmbStartServer_Click(object sender, EventArgs e) {
@@ -353,7 +355,7 @@ namespace FergoETS2Dash {
 								"Command mapping", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 				isMapping = true;
-				cmbMapear.Text = "Cancel";
+				cmbMapear.Text = "End mapping";
 				dgvComandos.Columns[1].DefaultCellStyle.BackColor = Color.LightGreen;
 			} else {
 				isMapping = false;
@@ -392,6 +394,8 @@ namespace FergoETS2Dash {
 			}
 
 			AtualizaLista();
+
+			this.Activate();
 		}
 
 		private void dgvComandos_KeyDown(object sender, KeyEventArgs e) {
