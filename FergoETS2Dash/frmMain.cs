@@ -63,8 +63,6 @@ namespace FergoETS2Dash {
 
 		public frmMain() {
 			InitializeComponent();
-
-			
 		}
 
 		private void cmbStartServer_Click(object sender, EventArgs e) {

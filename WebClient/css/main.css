@@ -1,7 +1,6 @@
 
 @font-face {
   font-family: "Flaticon";
-  /* src: url("../Flaticon.ttf") format("truetype"); */
   src: url("../icones.otf") format('opentype');
   font-style: normal;
 }
@@ -9,7 +8,7 @@
 html,body{
   height:100%;
   width:100%;
-	background: url("http://www.bradysammons.com/codepen/darkui/noise.png") repeat;
+	background: url("../noise.png") repeat;
   padding: 0; 
   margin: 0;
 }
@@ -35,14 +34,12 @@ html,body{
   text-align: right;
   font-size: 150%;
   overflow: hidden;
-  /* background-color: blue; */
 }
 
 .sidebar_text {
   flex-grow: 2;
   flex-basis: 70%; 
   overflow: hidden;
-  /* background-color: red; */
 }
 
 .sidebar_item_close {
@@ -64,7 +61,6 @@ html,body{
   display: flex;
   flex-wrap: wrap;
   background-color: rgba(0, 0, 0, 0.2);
-  /* box-shadow: 0px 0px 5px 5px #222; */
   padding: 5px;
 }
 
@@ -167,7 +163,6 @@ ul {
 	-webkit-overflow-scrolling: touch;
 }
 
-/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
 @media screen and (min-width: 1001px) {
   .grid_icone {
     font-size: 300%;
@@ -189,7 +184,6 @@ ul {
   }
 }
 
-/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
 @media screen and (max-width: 1000px) {
   .grid_icone {
     font-size: 150%
