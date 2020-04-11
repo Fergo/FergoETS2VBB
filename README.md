@@ -18,6 +18,8 @@ https://github.com/logisticsmod/Ets2-Telemetry-Library
 
 Fergo ETS2 VBB makes use of the telemetry plugin 'ets2-telemetry-server.dll' created by Funbit. If desired, the files are available in the `ETS2 Telemetry Plugins` folder of this repository. Just copy the contents of that folder into your ETS2 `bin` directory (e.g. `C:\Program Files\Steam\steamapps\common\Euro Truck Simulator 2\bin`)
 
+You will also need `.NET Framework 4.6.1`
+
 # Usage
 
 Download and extract the release to a directory of your choice. Run `FergoETS2Dash.exe` (the first time, it's recommended to run it with elevated priviledges, as it needs to configure the firewall rule and HTTP reservation.
