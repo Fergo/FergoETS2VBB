@@ -5,8 +5,8 @@ Welcome to Fergo ETS2 Virtual Button Box page.
 
 This project aims to create a virtual button box for Euro Truck Simulator 2 that you can use on any handheld device (smartphones, tablets). The project contains two components:
 
-* **Server:** the C# application that retrieves the data from Euro Truck Simulator 2, creates a web server, sends and receives  data from the clients
-* **Client:** an HTML/JS page that connects to the server and provides the user interface of the button box.
+* **Server:** C# application that retrieves data from Euro Truck Simulator 2, creates a web server, sends and receives data to/from clients;
+* **Client:** HTML/JS page that connects to the server and provides the user interface of the button box.
 
 This projects uses pieces of code already written by other fellow ETS fans:
 
