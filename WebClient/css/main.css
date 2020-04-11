@@ -1,0 +1,213 @@
+
+@font-face {
+  font-family: "Flaticon";
+  /* src: url("../Flaticon.ttf") format("truetype"); */
+  src: url("../icones.otf") format('opentype');
+  font-style: normal;
+}
+
+html,body{
+  height:100%;
+  width:100%;
+	background: url("http://www.bradysammons.com/codepen/darkui/noise.png") repeat;
+  padding: 0; 
+  margin: 0;
+}
+
+.left_panel {
+  overflow:hidden;
+  height:100%;
+}
+
+.right_panel {
+  float:right;
+  width:25%;
+  height:100%;
+  justify-content:space-between;
+  flex-direction:column;
+  display: flex;
+}
+
+.sidebar_title {
+  flex-grow: 2;
+  flex-basis: 30%;
+  margin: auto;
+  text-align: right;
+  font-size: 150%;
+  overflow: hidden;
+  /* background-color: blue; */
+}
+
+.sidebar_text {
+  flex-grow: 2;
+  flex-basis: 70%; 
+  overflow: hidden;
+  /* background-color: red; */
+}
+
+.sidebar_item_close {
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 0px;
+}
+
+.sidebar_item_spaced {
+  margin: 15px;
+}
+
+.sidebar_item {
+  font-family: 'Trebuchet MS', Helvetica, sans-serif;
+  font-weight: bold;
+  text-shadow: 0 2px 0 #000;
+  text-align: center;
+  color: rgb(255, 208, 0);
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0px 0px 5px 5px #222; */
+  padding: 5px;
+}
+
+.sidebar_color_white {
+  color:#fff;
+}
+
+.sidebar_color_red {
+  color:rgb(202, 0, 0);
+}
+
+.sidebar_large_text {
+  font-size: 500%;
+}
+
+.sidebar_medium_text {
+  font-size: 300%;
+}
+
+.sidebar_small_text {
+  font-size: 150%;
+}
+
+.grid_setor { 
+  width: 25%; 
+  height: 25%; 
+  float: left; 
+  margin: 0;
+}
+
+.grid_botao {
+  color: #111111;
+  border: 2px #000 solid;
+  border-radius: 20px;
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  background: linear-gradient(#222, #444) ;
+  vertical-align: middle;
+  margin: auto;
+  position: relative;
+  box-shadow: 0px 0px 5px 5px #222;
+  font-family: 'Trebuchet MS', Helvetica, sans-serif;
+  font-weight: bold;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.grid_vermelho {
+  background: linear-gradient(#600, #900) ;
+}
+
+.grid_botao:hover {
+  background: linear-gradient(#333, #555) ;
+}
+
+.grid_botao:active {
+  background: linear-gradient(#222, #444) ;
+  box-shadow: 0px 0px 5px 5px #222, inset 1px 4px 15px -6px #000;
+}
+
+.grid_icone {
+  width: 100%;
+  height: 75%;
+  float: left;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 300%;
+  font-family: Flaticon;
+}
+
+.grid_texto {
+  width: 100%;
+  height: 25%;
+  float: left; 
+  clear: left;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+  font-size: large;
+}
+
+.grid_interno {
+  display: block;
+  position: absolute;
+  width: 95%;
+  height: 90%;
+  left: 2.5%;
+  top: 5%;
+}
+
+ul {
+	height: 115px;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 1001px) {
+  .grid_icone {
+    font-size: 300%;
+  }
+  .grid_texto {
+    font-size: large;
+  }
+  .sidebar_title {
+    font-size: 100%
+  }
+  .sidebar_large_text {
+    font-size: 500%;
+  }
+  .sidebar_medium_text {
+    font-size: 300%;
+  }
+  .sidebar_small_text {
+    font-size: 150%;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 1000px) {
+  .grid_icone {
+    font-size: 150%
+  }
+  .grid_texto {
+    font-size: x-small;
+  }
+  .sidebar_title {
+    font-size: 50%
+  }
+  .sidebar_large_text {
+    font-size: 250%;
+  }
+  .sidebar_medium_text {
+    font-size: 150%;
+  }
+  .sidebar_small_text {
+    font-size: 75%;
+  }
+}
+

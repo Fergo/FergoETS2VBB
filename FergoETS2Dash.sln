@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FergoETS2Dash", "FergoETS2Dash\FergoETS2Dash.csproj", "{7E59E769-45CD-41EE-AF34-86401A312262}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuroTruckSimulatorTelemetry", "EuroTruckSimulatorTelemetry\EuroTruckSimulatorTelemetry.csproj", "{80FBF621-B3D8-457A-B6F9-519152F7AD37}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebClient", "WebClient", "{D03DD053-26B0-404B-91A8-71A40ADD780E}"
+	ProjectSection(SolutionItems) = preProject
+		WebClient\icon.png = WebClient\icon.png
+		WebClient\icon.psd = WebClient\icon.psd
+		WebClient\icones.otf = WebClient\icones.otf
+		WebClient\index.html = WebClient\index.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{C8C70C35-A158-4A14-A012-9C1FAE29AE0F}"
+	ProjectSection(SolutionItems) = preProject
+		WebClient\css\main.css = WebClient\css\main.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "js", "js", "{112E89C0-9652-41CF-9EF0-DC1946B8967B}"
+	ProjectSection(SolutionItems) = preProject
+		WebClient\js\jquery.min.js = WebClient\js\jquery.min.js
+		WebClient\js\scripts.js = WebClient\js\scripts.js
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E59E769-45CD-41EE-AF34-86401A312262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E59E769-45CD-41EE-AF34-86401A312262}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E59E769-45CD-41EE-AF34-86401A312262}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E59E769-45CD-41EE-AF34-86401A312262}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80FBF621-B3D8-457A-B6F9-519152F7AD37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80FBF621-B3D8-457A-B6F9-519152F7AD37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80FBF621-B3D8-457A-B6F9-519152F7AD37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80FBF621-B3D8-457A-B6F9-519152F7AD37}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C8C70C35-A158-4A14-A012-9C1FAE29AE0F} = {D03DD053-26B0-404B-91A8-71A40ADD780E}
+		{112E89C0-9652-41CF-9EF0-DC1946B8967B} = {D03DD053-26B0-404B-91A8-71A40ADD780E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2BFD6075-BBFE-4720-A2C3-96002330CDF4}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<meta name="viewport" content="width=device-width, initial-scale = 1.0" />
+	<meta name="apple-mobile-web-app-title" content="Fergo ETS2" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+	<title>Fergo ETS2 Virtual Button Box</title>
+
+	<meta name="description" content="Virtual button box for Euro Truck Simulator 2">
+	<meta name="author" content="Fergo">
+
+	<link href="css/main.css" rel="stylesheet">
+
+	<link rel="apple-touch-icon" sizes="128x128" href="icon.png">
+
+
+</head>
+<body>
+
+	<div class="right_panel">
+		<div>
+		<div class="sidebar_item sidebar_item_spaced">
+			<div class="sidebar_title">SPEED</div>
+			<div class="sidebar_text">
+				<div class="sidebar_large_text" id="data_speed">88</div>
+				<div class="sidebar_small_text">km/h</div>
+			</div>
+		</div>
+		<div class="sidebar_item sidebar_item_spaced">
+			<div class="sidebar_title">LIMIT</div>
+			<div class="sidebar_text">
+				<div class="sidebar_large_text" id="data_limit">80</div>
+				<div class="sidebar_small_text">km/h</div>
+			</div>
+		</div>
+		<div class="sidebar_item sidebar_item_spaced">
+			<div class="sidebar_title">GEAR</div>
+			<div class="sidebar_text sidebar_large_text" id="data_gear">4</div>
+		</div>
+		<div class="sidebar_item sidebar_item_spaced">
+			<div class="sidebar_title">CRUISE</div>
+			<div class="sidebar_text">
+				<div class="sidebar_medium_text" id="data_cruise">70</div>
+				<div class="sidebar_small_text">km/h</div>
+			</div>
+		</div>
+		<div class="sidebar_item sidebar_item_spaced">
+			<div class="sidebar_title">FUEL</div>
+			<div class="sidebar_text">
+				<div class="sidebar_small_text" id="data_fuel">548 liters</div>
+			</div>
+		</div>
+		<div class="sidebar_item sidebar_item_close">
+			<div class="sidebar_title">OIL P</div>
+			<div class="sidebar_text">
+				<div class="sidebar_small_text" id="data_oilp"></div>
+			</div>
+		</div>
+		<div class="sidebar_item sidebar_item_close">
+			<div class="sidebar_title">OIL T</div>
+			<div class="sidebar_text">
+				<div class="sidebar_small_text" id="data_oilt"></div>
+			</div>
+		</div>
+		<div class="sidebar_item sidebar_item_close">
+			<div class="sidebar_title">WATER T</div>
+			<div class="sidebar_text">
+				<div class="sidebar_small_text" id="data_watert"></div>
+			</div>
+		</div>
+		<div class="sidebar_item sidebar_item_close">
+			<div class="sidebar_title">AIR P</div>
+			<div class="sidebar_text">
+				<div class="sidebar_small_text" id="data_airpr"></div>
+			</div>
+		</div>
+		</div>
+		<div>
+			<ul></ul>
+		<!-- <div class="sidebar_item sidebar_item_spaced sidebar_bottom">
+			<div class="sidebar_title">TEMP</div>
+			<div class="sidebar_text">
+				<div class="sidebar_small_text">TEMP</div>
+			</div>
+		</div> -->
+		</div>
+	</div>
+	<div class="left_panel">
+	<div class="grid_setor">
+		<div class="grid_vermelho grid_botao " id="btn_ignicao">
+			<div class="grid_interno">
+				<div class="grid_icone">
+					&#xf11f;
+				</div>
+				<div class="grid_texto">
+					Ignição
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid_setor">
+		<div class="grid_botao" id="btn_lanterna">
+			<div class="grid_interno">
+				<div class="grid_icone">
+					&#xf10f;
+				</div>
+				<div class="grid_texto">
+					Lanterna
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="grid_setor">
+		<div class="grid_botao" id="btn_emergencia">
+			<div class="grid_interno">
+				<div class="grid_icone">
+					&#xf121;
+				</div>
+				<div class="grid_texto">
+					Luz emergência
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid_setor">
+		<div class="grid_botao" id="btn_mapa">
+			<div class="grid_interno">
+				<div class="grid_icone">
+					&#xf122;
+				</div>
+				<div class="grid_texto">
+					Mapa
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid_setor">
+		<div class="grid_botao" id="btn_freiodemao">
+			<div class="grid_interno">
+				<div class="grid_icone">
+					&#xf104;
+				</div>
+				<div class="grid_texto">
+					Freio de mão
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid_setor">
+		<div class="grid_botao" id="btn_luzbaixa">
+			<div class="grid_interno">
+				<div class="grid_icone">
+					&#xf110;
+				</div>
+				<div class="grid_texto">
+					Luz baixa
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="grid_setor">
+		<div class="grid_botao" id="btn_piscaalerta">
+			<div class="grid_interno">
+				<div class="grid_icone">
+					&#xf11a;
+				</div>
+				<div class="grid_texto">
+					Alerta
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="grid_setor">
+		<div class="grid_botao" id="btn_espelhos">
+			<div class="grid_interno">
+				<div class="grid_icone">
+					&#xf124;
+				</div>
+				<div class="grid_texto">
+					Espelhos
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid_setor">
+		<div class="grid_botao" id="btn_trailer">
+			<div class="grid_interno">
+				<div class="grid_icone">
+					&#xf120;
+				</div>
+				<div class="grid_texto">
+					Desconectar
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid_setor">
+		<div class="grid_botao" id="btn_luzalta">
+			<div class="grid_interno">
+				<div class="grid_icone">
+					&#xf10d;
+				</div>
+				<div class="grid_texto">
+					Luz alta
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="grid_setor">
+		<div class="grid_botao" id="btn_buzina">
+			<div class="grid_interno">
+				<div class="grid_icone">
+					&#xf11e;
+				</div>
+				<div class="grid_texto">
+					Buzina
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid_setor">
+		<div class="grid_botao" id="btn_cameratop">
+			<div class="grid_interno">
+				<div class="grid_icone">
+					&#xf123;
+				</div>
+				<div class="grid_texto">
+					Camera superior
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid_setor">
+		<div class="grid_botao" id="btn_limpadores">
+			<div class="grid_interno">
+				<div class="grid_icone">
+					&#xf11d;
+				</div>
+				<div class="grid_texto">
+					Limpadores
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid_setor">
+		<div class="grid_botao" id="btn_teto">
+			<div class="grid_interno">
+				<div class="grid_icone">
+					&#xf113;
+				</div>
+				<div class="grid_texto">
+					Farol de teto
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid_setor">
+		<div class="grid_botao" id="btn_buzinaar">
+			<div class="grid_interno">
+				<div class="grid_icone">
+					&#xf11e;
+				</div>
+				<div class="grid_texto">
+					Buzina a ar
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="grid_setor">
+		<div class="grid_botao" id="btn_camerainterna">
+			<div class="grid_interno">
+				<div class="grid_icone">
+					&#xf123;
+				</div>
+				<div class="grid_texto">
+					Camera interna
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</div>
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/scripts.js"></script>
+	
+	
+	<script>
+
+		
+	</script>
+</body>
+</html>
