@@ -24,7 +24,7 @@ You will also need `.NET Framework 4.6.1`
 
 Download and extract the release to a directory of your choice. Run `FergoETS2Dash.exe` (the first time, it's recommended to run it with elevated priviledges, as it needs to configure the firewall rule and HTTP reservation.
 
-With the program running, click `Start server` to start the HTTP and WebSocket listeners. You can then go to your device (or  use the browser on your own computer) and access the local address of the server, as shown in the log window (i.e. http://192.168.1.100:8080). The virtual buttons will be shown on the page. 
+With the program running, click `Start server` to start the HTTP and WebSocket listeners. You can then go to your device (or  use the browser on your own computer) and access the local address of the server, as shown in the log window (e.g. http://192.168.1.100:8080). The virtual buttons will be shown on the page. 
 
 Now, to configure what each button does, click the `Map commands` button on the server and then push the desired button the client. A new entry will be added to the command list, where you can then assign a keypress to that command. When finished, just click `End mapping`. If both the server and the ETS2 connection are estabilished (shown in green in the server window), you should be good to.
 
