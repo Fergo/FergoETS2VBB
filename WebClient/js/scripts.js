@@ -54,14 +54,6 @@ function SendCommand(command) {
     
 
 $(document).ready(function() {
-    // $('.grid_botao').mousedown(function() {				
-    //     SendCommand(this.id + "@down");
-    // });
-
-    // $('.grid_botao').mouseup(function() {				
-    //     SendCommand(this.id + "@up");
-    // });
-
     $('.grid_botao').on("touchstart", function(e) {
         // alert("touch")
         SendCommand(this.id + "@down");
