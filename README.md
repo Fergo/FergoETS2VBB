@@ -20,6 +20,12 @@ Fergo ETS2 VBB makes use of the telemetry plugin 'ets2-telemetry-server.dll' cre
 
 You will also need `.NET Framework 4.6.1`
 
+# Download 
+
+Check the `Releases` page:
+
+https://github.com/Fergo/FergoETS2Dash/releases
+
 # Usage
 
 Download and extract the release to a directory of your choice. Run `FergoETS2Dash.exe` (the first time, it's recommended to run it with elevated priviledges, as it needs to configure the firewall rule and HTTP reservation.
