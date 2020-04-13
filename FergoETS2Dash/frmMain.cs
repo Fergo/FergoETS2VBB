@@ -13,6 +13,7 @@ using Ets.Telemetry.Server.Data;
 using Ets.Telemetry.Server.Data.Reader;
 using System.IO;
 using InputManager;
+using System.Reflection;
 
 namespace FergoETS2Dash {
 	public partial class frmMain : Form {
@@ -37,28 +38,6 @@ namespace FergoETS2Dash {
 			{ "data_watert", ""},
 			{ "data_airpr", "" },
 			{ "data_limit", "" }
-		};
-
-		Dictionary<string, bool> oldStates = new Dictionary<string, bool> {
-			{ "btn_freiodemao", false },
-			{ "btn_limpadores", false },
-			{ "btn_lanterna", false },
-			{ "btn_luzbaixa", false },
-			{ "btn_luzalta", false },
-			{ "btn_piscaalerta", false },
-			{ "btn_teto", false},
-			{ "btn_emergencia", false}
-		};
-
-		Dictionary<string, bool> states = new Dictionary<string, bool> {
-			{ "btn_freiodemao", false },
-			{ "btn_limpadores", false },
-			{ "btn_lanterna", false },
-			{ "btn_luzbaixa", false },
-			{ "btn_luzalta", false },
-			{ "btn_piscaalerta", false },
-			{ "btn_teto", false},
-			{ "btn_emergencia", false}
 		};
 
 		public frmMain() {
@@ -247,7 +226,7 @@ namespace FergoETS2Dash {
 						if (split[1] == "down") {
 							if (!keyMaps.Exists(d => d.Nome == split[0])) {
 								keyMaps.Add(new EventMapping { Nome = split[0], FriendlyKey = "", KeyCode = 0 });
-								AtualizaLista();
+								UpdateList();
 							}
 						}
 						
@@ -257,7 +236,7 @@ namespace FergoETS2Dash {
 		}
 
 		//Refreshes the DataGridView with the current key mappings
-		private void AtualizaLista() {
+		private void UpdateList() {
 			dgvComandos.Invoke((MethodInvoker)delegate {
 				dgvComandos.Rows.Clear();
 				foreach (var mapeamento in keyMaps) {
@@ -312,18 +291,35 @@ namespace FergoETS2Dash {
 				variaveis["data_airpr"] = data.Truck.AirPressure.ToString("N0") + " psi";
 				variaveis["data_limit"] = data.Navigation.SpeedLimit.ToString("N0");
 
-				states["btn_freiodemao"] = data.Truck.ParkBrakeOn;
-				states["btn_limpadores"] = data.Truck.WipersOn;
-				states["btn_lanterna"] = data.Truck.LightsParkingOn;
-				states["btn_luzbaixa"] = data.Truck.LightsBeamLowOn;
-				states["btn_luzalta"] = data.Truck.LightsBeamHighOn;
-				states["btn_teto"] = data.Truck.LightsAuxRoofOn;
-				states["btn_piscaalerta"] = data.Truck.BlinkerLeftOn && data.Truck.BlinkerRightOn;
-				states["btn_emergencia"] = data.Truck.LightsBeaconOn;
-
+				bool[] states = new bool[25];
+				states[0] = data.Truck.CruiseControlOn;
+				states[1] = data.Truck.WipersOn;
+				states[2] = data.Truck.ParkBrakeOn;
+				states[3] = data.Truck.MotorBrakeOn;
+				states[4] = data.Truck.EngineOn;
+				states[5] = data.Truck.ElectricOn;
+				states[6] = data.Truck.BlinkerLeftActive;
+				states[7] = data.Truck.BlinkerRightActive;
+				states[8] = data.Truck.BlinkerLeftOn;
+				states[9] = data.Truck.BlinkerRightOn;
+				states[10] = data.Truck.LightsParkingOn;
+				states[11] = data.Truck.LightsBeamLowOn;
+				states[12] = data.Truck.LightsBeamHighOn;
+				states[13] = data.Truck.LightsAuxFrontOn;
+				states[14] = data.Truck.LightsAuxRoofOn;
+				states[15] = data.Truck.LightsBeaconOn;
+				states[16] = data.Truck.LightsBrakeOn;
+				states[17] = data.Truck.LightsReverseOn;
+				states[18] = data.Truck.BatteryVoltageWarningOn;
+				states[19] = data.Truck.AirPressureWarningOn;
+				states[20] = data.Truck.AirPressureEmergencyOn;
+				states[21] = data.Truck.AdblueWarningOn;
+				states[22] = data.Truck.OilPressureWarningOn;
+				states[23] = data.Truck.WaterTemperatureWarningOn;
+				states[24] = data.Truck.BlinkerLeftOn && data.Truck.BlinkerRightOn;
 
 				if (!data.Truck.LightsBeamLowOn)
-					states["btn_luzalta"] = false;
+					states[12] = false;
 
 				//Prepares the string to be sent with websockets (pattern: variable1@value1|variable2@value2 ... )
 				string dataSend = "";
@@ -331,10 +327,10 @@ namespace FergoETS2Dash {
 				//Telemetry info (speed, gear, ...)
 				foreach(var variavel in variaveis)
 					dataSend += variavel.Key + "@" + variavel.Value + "|";
-				
+
 				//Button light info (wipers, lights, ...)
-				foreach (var state in states)
-					dataSend += state.Key + "@" + state.Value + "|";
+				for (int i = 0; i < states.Length; i++)
+					dataSend += i + "@" + (states[i] == true ? "1" : "0") + "|";
 
 				SendMessage(dataSend);
 			} else {
@@ -369,31 +365,33 @@ namespace FergoETS2Dash {
 
 			//Loads the settings file
 			if (File.Exists("config.cfg")) {
-				StreamReader sr = new StreamReader("config.cfg");
+				using (StreamReader sr = new StreamReader("config.cfg")) {
+					while (!sr.EndOfStream) {
+						string linha = sr.ReadLine();
+						string[] split = linha.Split('|');
 
-				while (!sr.EndOfStream) {
-					string linha = sr.ReadLine();
-					string[] split = linha.Split('|');
+						//If there are three values, assume a keyboard mapping, otherwise it's another setting
+						if (split.Length == 3) {
+							Keys vk = (Keys)Convert.ToInt32(split[2]);
+							keyMaps.Add(new EventMapping { Nome = split[0], FriendlyKey = split[1], KeyCode = vk });
+						} else if (split.Length == 2) {
+							if (split[0] == "port")
+								if (int.TryParse(split[1], out int port))
+									txtPort.Text = port.ToString();
+								else
+									txtPort.Text = "8080";
+						}
 
-					//If there are three values, assume a keyboard mapping, otherwise it's another setting
-					if (split.Length == 3) {
-						Keys vk = (Keys)Convert.ToInt32(split[2]);
-						keyMaps.Add(new EventMapping { Nome = split[0], FriendlyKey = split[1], KeyCode = vk });
-					} else if (split.Length == 2)  {
-						if (split[0] == "port")
-							if (int.TryParse(split[1], out int port))
-								txtPort.Text = port.ToString();
-							else
-								txtPort.Text = "8080";
 					}
-
+					sr.Close();
 				}
-				sr.Close();
 			}
 
-			AtualizaLista();
+			UpdateList();
 
 			this.Activate();
+
+			this.Text += " v" + Assembly.GetExecutingAssembly().GetName().Version;
 		}
 
 		private void dgvComandos_KeyDown(object sender, KeyEventArgs e) {
@@ -417,9 +415,9 @@ namespace FergoETS2Dash {
 					if (e.KeyCode == Keys.Delete) {
 						string mapName = dgvComandos.CurrentRow.Cells[0].Value.ToString();
 						if (MessageBox.Show($"Do you really want to delete '{mapName}'?", "Remove mapping", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-							keyMaps.RemoveAll(d => d.Nome == dgvComandos.CurrentRow.Cells[0].Value.ToString());
+							keyMaps.RemoveAll(d => d.Nome == mapName);
 
-							AtualizaLista();
+							UpdateList();
 						}
 						
 					}

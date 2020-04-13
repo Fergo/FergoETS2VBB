@@ -163,7 +163,7 @@ ul {
 	-webkit-overflow-scrolling: touch;
 }
 
-@media screen and (min-width: 1001px) {
+@media only screen and (min-width: 1031px) {
   .grid_icone {
     font-size: 300%;
   }
@@ -184,7 +184,7 @@ ul {
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media only screen and (max-width: 1030px) {
   .grid_icone {
     font-size: 150%
   }

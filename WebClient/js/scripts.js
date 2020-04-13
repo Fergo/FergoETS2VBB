@@ -1,17 +1,31 @@
 var DEBUG = false;
 var socketConnected = 0;
+var telemetryVars = new Array(25);
+var currentPage = 0;
+var pages = "";
 
-var colors = {
-    "btn_lanterna" : "#46ff40",
-    "btn_luzbaixa" : "#46ff40",
-    "btn_luzalta" : "#0d1dff",
-    "btn_freiodemao" : "#f50504",
-    "btn_piscaalerta" : "#f50504",
-    "btn_limpadores" : "#aeaeae",
-    "btn_cabine" : "#aeaeae",
-    "btn_teto" : "#46ff40",
-    "btn_emergencia" : "#efb602"
-};
+buttons = document.getElementsByClassName("grid_botao");
+
+$.ajax({
+  url: "template.json",
+  async: false,
+  dataType: 'json',
+  success: function (response) {
+    pages = response;
+  }
+});
+
+function ShowPage(page) {
+    if (pages[page] != null) {
+        for (var i = 0; i < buttons.length; i ++ ) {
+            buttons[i].children[0].children[0].innerHTML = pages[page].button[i].icon;
+            buttons[i].children[0].children[1].innerHTML = pages[page].button[i].name;
+            buttons[i].children[0].children[0].style.color = pages[page].button[i].colorOff;
+            buttons[i].id = pages[page].button[i].id;
+        }
+        currentPage = page;
+    }
+}
 
 //Atualiza a tela do CDU conforme a string do servidor
 function Update(inputStream) {
@@ -27,35 +41,47 @@ function Update(inputStream) {
 			var id = segments[0];
             var value = segments[1];
 
-            if (id.substr(0, 4) == "btn_") {
-                if (document.getElementById(id)) {
-                    if (value == "True")
-                        document.getElementById(id).children[0].children[0].style.color = colors[id];
-                    else
-                    document.getElementById(id).children[0].children[0].style.color = "#111111";
-                }   
-
-            } else {
+            if (id.substr(0, 5) == "data_") {
                 if (document.getElementById(id))
                     document.getElementById(id).innerHTML = value;
+            } else {
+                telemetryVars[parseInt(id)] = value;
             }
             
 		}
-	});
+    });
+
+    for (var i = 0; i < buttons.length; i ++ ) {
+        var buttonTelemetry = parseInt(pages[currentPage].button[i].telemetry);
+
+        if (buttonTelemetry >= 0) {
+            if (telemetryVars[buttonTelemetry] == 1)
+                buttons[i].children[0].children[0].style.color = pages[currentPage].button[i].colorOn;
+            else
+                buttons[i].children[0].children[0].style.color = pages[currentPage].button[i].colorOff;
+        }
+        
+    }
+    
 }
 
 //Envia o pressionamento de um botao
 function SendCommand(command) {
-	if (!DEBUG) {
-		if (socketConnected)
-		socket.send(command);
-	} 
+    if (command.substr(0, 9) == "next_page") {
+        ShowPage(currentPage + 1);
+    } else if (command.substr(0, 9) == "prev_page") {
+        ShowPage(currentPage - 1);
+    } else {
+        if (!DEBUG) {
+            if (socketConnected)
+            socket.send(command);
+        } 
+    }
 }
     
 
 $(document).ready(function() {
     $('.grid_botao').on("touchstart", function(e) {
-        // alert("touch")
         SendCommand(this.id + "@down");
         e.preventDefault();
     });
@@ -87,3 +113,5 @@ if (!DEBUG) {
         Update(evt.data);
     };
 }
+
+ShowPage(0);

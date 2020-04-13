@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FergoETS2Dash")]
+[assembly: AssemblyTitle("FergoETS2Template")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FergoETS2Dash")]
+[assembly: AssemblyProduct("FergoETS2Template")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("7e59e769-45cd-41ee-af34-86401a312262")]
+[assembly: Guid("119aaa64-7a42-42ce-8bfd-feaa3f8f3714")]
 
 // Version information for an assembly consists of the following four values:
 //
