@@ -49,11 +49,11 @@ Since version 0.2a, the package now includes a templating tool that allows you t
 </p>
 
 <p align="center">
-  <img width="460" height="300" src="https://i.imgur.com/mQVDdgf.png">
+  <img width="460" src="https://i.imgur.com/mQVDdgf.png">
 </p>
 
 <p align="center">
-  <img width="460" height="300" src="https://i.imgur.com/e70hdUh.png">
+  <img width="460" src="https://i.imgur.com/e70hdUh.png">
 </p>
 
 
