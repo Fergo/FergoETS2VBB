@@ -38,6 +38,10 @@ Now, to configure what each button does, click the `Map commands` button on the 
 
 PS.: The release already comes with a preset configuration compatible with the default keybindings.
 
+# Template Tool
+
+Since version 0.2a, the package now includes a templating tool that allows you to customize the buttons to your own liking, with custom icons, text and colors. It also enables support for multiple pages, so you can now have more than 16 buttons to control your simulator.
+
 # Screenshots
 
 <p align="center">
@@ -47,4 +51,10 @@ PS.: The release already comes with a preset configuration compatible with the d
 <p align="center">
   <img width="460" height="300" src="https://i.imgur.com/mQVDdgf.png">
 </p>
+
+<p align="center">
+  <img width="460" height="300" src="https://i.imgur.com/e70hdUh.png">
+</p>
+
+
 
